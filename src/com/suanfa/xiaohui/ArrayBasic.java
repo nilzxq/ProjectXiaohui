@@ -74,6 +74,25 @@ public class ArrayBasic {
 		}
 	}
 	
+	/**
+	 * 数组删除元素
+	 * @param index 删除的位置
+	 * @return
+	 * @throws Exception
+	 */
+	public int delete(int index) throws Exception{
+		if(index<0||index>=size) {
+			throw new IndexOutOfBoundsException("超出数组实际元素范围！");
+		}
+		int deleteElement=array[index];
+		//从左向右循环，将元素逐个向左挪一位
+		for(int i=index;i<size-1;i++) {
+			array[i]=array[i+1];
+		}
+		size--;
+		return deleteElement;
+	}
+	
 	public static void main(String[] args) throws Exception{
 //		ArrayBasic arrayBasic=new ArrayBasic(10);
 //		arrayBasic.insert(3,0);
@@ -89,6 +108,8 @@ public class ArrayBasic {
 		arrayBasic1.insertC(9, 2);
 		arrayBasic1.insertC(5, 3);
 		arrayBasic1.insertC(6, 1);
+		arrayBasic1.output();
+		arrayBasic1.delete(0);
 		arrayBasic1.output();
 		
 	}
